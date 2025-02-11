@@ -1,4 +1,4 @@
-package malang.board.article;
+package malang.board.article.service;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

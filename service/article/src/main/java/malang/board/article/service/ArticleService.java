@@ -1,7 +1,6 @@
 package malang.board.article.service;
 
 import lombok.RequiredArgsConstructor;
-import malang.board.article.PageLimitCalculator;
 import malang.board.article.entity.Article;
 import malang.board.article.repository.ArticleRepository;
 import malang.board.article.service.request.ArticleCreateRequest;

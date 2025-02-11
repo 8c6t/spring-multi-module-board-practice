@@ -1,5 +1,6 @@
 package malang.board.article;
 
+import malang.board.article.service.PageLimitCalculator;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
