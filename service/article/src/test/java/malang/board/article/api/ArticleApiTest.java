@@ -2,6 +2,7 @@ package malang.board.article.api;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import malang.board.article.service.response.ArticlePageResponse;
 import malang.board.article.service.response.ArticleResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.client.RestClient;
@@ -62,6 +63,20 @@ public class ArticleApiTest {
         restClient.delete()
                 .uri("/v1/articles/{articleId}", articleId)
                 .retrieve();
+    }
+
+    @Test
+    void readAllTest() {
+        ArticlePageResponse response = restClient.get()
+                .uri("/v1/articles?boardId=1&pageSize=30&page=5000")
+                .retrieve()
+                .body(ArticlePageResponse.class);
+
+        System.out.println("response.get = " + response.getArticleCount());
+
+        for (ArticleResponse article : response.getArticles()) {
+            System.out.println("articleId = " + article.getArticleId());
+        }
     }
 
     @Getter
