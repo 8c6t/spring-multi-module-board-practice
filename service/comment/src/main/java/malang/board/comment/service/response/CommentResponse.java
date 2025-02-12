@@ -3,6 +3,7 @@ package malang.board.comment.service.response;
 import lombok.Getter;
 import lombok.ToString;
 import malang.board.comment.entity.Comment;
+import malang.board.comment.entity.CommentV2;
 
 import java.time.LocalDateTime;
 
@@ -14,6 +15,7 @@ public class CommentResponse {
     private String content;
     private Long parentCommentId;
     private Long articleId;
+    private String path;
     private Long writerId;
     private Boolean deleted;
     private LocalDateTime createdAt;
@@ -23,6 +25,18 @@ public class CommentResponse {
         response.commentId = comment.getCommentId();
         response.content = comment.getContent();
         response.parentCommentId = comment.getParentCommentId();
+        response.articleId = comment.getArticleId();
+        response.writerId = comment.getWriterId();
+        response.deleted = comment.getDeleted();
+        response.createdAt = comment.getCreatedAt();
+        return response;
+    }
+
+    public static CommentResponse from(CommentV2 comment) {
+        CommentResponse response = new CommentResponse();
+        response.commentId = comment.getCommentId();
+        response.content = comment.getContent();
+        response.path = comment.getCommentPath().getPath();
         response.articleId = comment.getArticleId();
         response.writerId = comment.getWriterId();
         response.deleted = comment.getDeleted();
