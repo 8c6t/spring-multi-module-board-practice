@@ -23,6 +23,7 @@ public class HotArticleEventConsumer {
             EventType.Topic.MALANG_BOARD_LIKE,
             EventType.Topic.MALANG_BOARD_VIEW
     })
+
     public void listen(String message, Acknowledgment ack) {
         log.info("[HotArticleEventConsumer.listen] received message={}", message);
         Event<EventPayload> event = Event.fromJson(message);
